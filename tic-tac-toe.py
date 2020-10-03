@@ -24,10 +24,10 @@ def result(val):
 
 
 def check(ele):
-    if len(set(ele))==1:
-        return True
-    else:
-        return False
+    flag = False
+    if len(set(ele)) == 1:
+        flag = True
+    return flag
 
 def diag(m):
     d1=list(set([m[0][0],m[1][1],m[2][2]]))
