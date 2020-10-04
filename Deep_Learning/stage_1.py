@@ -109,3 +109,31 @@ model_json = model.to_json()
 open('stage-1_architecture.json', 'w').write(model_json)
 model.save_weights('stage-1_weights.h5', overwrite=True)
 '''
+
+# to predict mnist image use the following code after loading 
+
+img = cv2.imread("/home/sharma/Machine_learning/Deep_Learning/second.png", 0)
+
+invert = cv2.bitwise_not(img)  # OR
+
+cv2.imshow("img", invert)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+img = cv2.resize(invert, (28, 28))
+
+img.shape
+
+test = img.reshape(784)
+
+test.shape
+
+test = test.astype('float32')
+
+test /= 255
+
+loadedModel.predict([[test]])
+
+loadedModel.predict_classes([[test]])
+
+loadedModel.predict_proba([[test]])
